@@ -2,42 +2,21 @@
 # -*- coding: utf-8 -*-
 
 
-# Поле first — целое положительное число, номинал купюры; номинал может принимать
-# значения 1, 2, 5, 10, 50, 100, 500, 1000, 5000. Поле second — целое положительное число,
-# количество купюр данного достоинства. Реализовать метод summa() — вычисление
-# денежной суммы.
+# Выполнить индивидуальное задание 1 лабораторной работы 4.1, максимально задействовав
+# имеющиеся в Python средства перегрузки операторов.
 
 
 class TaskOne:
-   c = {}
-   summ = 0
-   b = [1, 2, 5, 10, 50, 100, 500, 1000, 5000]
+   def __init__(self, first, second):
+      self.first = first
+      self.second = second
+      self.summ = self.first * self.second
 
-   def __init__(self):
-      self.first = 0
-      self.second = 0
-
-   def read(self, prompt=None):
-      self.first = input('Введите номинал купюры: ') if prompt is None else input(prompt)
-      if int(self.first) in TaskOne.b:
-         self.second = input('Введите количество купюр данного номинала: ') if prompt is None else input(prompt)
-         TaskOne.c[self.first] = self.second
-      else:
-         print("Такого номинала нет в списке")
-
-   def display(self):
-      print(self.make_summa())
- 
-   def make_summa(self):
-      for k, i in TaskOne.c.items():
-         TaskOne.summ += int(k) * int(i)
-      TaskOne.c = {}
-      return TaskOne.summ
+   def __add__(self, other):
+      return self.summ + other.summ
       
 
 if __name__ == '__main__':
-   print("Список доступных номиналов: 1, 2, 5, 10, 50, 100, 500, 1000, 5000")
-   while True:
-      r2 = TaskOne()
-      r2.read()
-      r2.display()
+   r1 = TaskOne(100, 2)
+   r2 = TaskOne(200, 1)
+   print(f'r1 + r2 = {r1 + r2}')
