@@ -21,7 +21,15 @@ class Money:
         self.number = str(number)
         for i in self.number:
             self.lst.append(i)
+        self.size(self.lst)
 
+    def size(self, lst):
+        size = len(lst)
+        if size > Money.const_len:
+            print("Первышена максимальная длина списка")
+            exit(1)
+        
+        
     def __add__(self, other):
         summ_lst = []
         lst1 = self.lst[::-1]
@@ -31,6 +39,7 @@ class Money:
         summ_str = str(lst1 + lst2)
         for i in summ_str:
             summ_lst.append(i)
+        self.size(summ_lst)
         return "".join(summ_lst[::-1])
 
     
@@ -43,10 +52,11 @@ class Money:
         summ_str = str(lst1 - lst2)
         for i in summ_str:
             summ_lst.append(i)
+        self.size(summ_lst)
         return "".join(summ_lst[::-1])
             
 
-r1 = Money(123115)
-r2 = Money(211115)
+r1 = Money(11233)
+r2 = Money(12222)
 print(f"r1 + r2 = {r1 + r2}")
 print(f"r1 - r2 = {r1 - r2}")
