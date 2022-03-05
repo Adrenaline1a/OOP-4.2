@@ -28,8 +28,7 @@ class Money:
         if size > Money.const_len:
             print("Первышена максимальная длина списка")
             exit(1)
-        
-        
+
     def __add__(self, other):
         summ_lst = []
         lst1 = self.lst[::-1]
@@ -42,7 +41,6 @@ class Money:
         self.size(summ_lst)
         return "".join(summ_lst[::-1])
 
-    
     def __sub__(self, other):
         summ_lst = []
         lst1 = self.lst[::-1]
@@ -56,7 +54,8 @@ class Money:
         return "".join(summ_lst[::-1])
             
 
-r1 = Money(11233)
-r2 = Money(12222)
-print(f"r1 + r2 = {r1 + r2}")
-print(f"r1 - r2 = {r1 - r2}")
+if __name__ == '__main__':
+    r1 = Money(11233)
+    r2 = Money(12222)
+    print(f"r1 + r2 = {r1 + r2}")
+    print(f"r1 - r2 = {r1 - r2}")
